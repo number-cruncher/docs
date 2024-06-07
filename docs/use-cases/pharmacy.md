@@ -183,7 +183,7 @@ select
   , g.generic_prescribed_history
   , g.brand_paid_per_unit
   , g.generic_cost_per_unit
-  , sum(g.generic_available_total_opportunity) as generic_available_total_opportunity
+  , sum(e.generic_available_total_opportunity) as opportunity_for_brand_ndc
 from pharmacy.pharmacy_claim_expanded as e
 inner join pharmacy.generic_available_list as g
   on e.generic_available_sk = g.generic_available_sk
@@ -198,7 +198,7 @@ group by
   , g.generic_prescribed_history
   , g.brand_paid_per_unit
   , g.generic_cost_per_unit
-order by generic_available_total_opportunity desc
+order by opportunity_for_brand_ndc desc
 
 ```
 </details>
@@ -217,7 +217,7 @@ select
   , g.generic_prescribed_history
   , g.brand_paid_per_unit
   , g.generic_cost_per_unit
-  , sum(g.generic_available_total_opportunity) as generic_available_total_opportunity
+  , sum(e.generic_available_total_opportunity) as opportunity_for_brand_ndc
 from pharmacy.pharmacy_claim_expanded as e
 inner join pharmacy.generic_available_list as g
   on e.generic_available_sk = g.generic_available_sk
@@ -233,7 +233,7 @@ group by
   , g.generic_prescribed_history
   , g.brand_paid_per_unit
   , g.generic_cost_per_unit
-order by generic_available_total_opportunity desc
+order by opportunity_for_brand_ndc desc
 
 ```
 </details>
